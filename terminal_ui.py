@@ -13,7 +13,7 @@ class TerminalUI(tk.Tk):
         self.title("0Term")
         self.geometry("800x500")
         
-        # --- Tema Yükleme ---
+      
         self.current_theme = THEMES.get(theme_name, THEMES["Dark"])
         self.background_color = self.current_theme["bg"]
         self.text_color = self.current_theme["text"]
@@ -24,11 +24,11 @@ class TerminalUI(tk.Tk):
         
         self.configure(bg=self.background_color)
 
-        # --- Komut Geçmişi ---
+    
         self.command_history = []
         self.history_index = -1 
 
-        # --- Terminal Alanı ---
+    
         self.terminal_area = scrolledtext.ScrolledText(
             self,
             bg=self.background_color,
@@ -39,7 +39,7 @@ class TerminalUI(tk.Tk):
         )
         self.terminal_area.pack(fill=tk.BOTH, expand=True)
         
-        # --- Olay Bağlama ---
+
         self.terminal_area.bind("<Return>", self.handle_input)
         self.terminal_area.bind("<Tab>", self.handle_tab_completion) # Tab tamamlama
         self.terminal_area.bind("<Up>", self.navigate_history)       # Komut geçmişi
@@ -47,11 +47,11 @@ class TerminalUI(tk.Tk):
         self.terminal_area.bind("<Key>", self.prevent_deletion_before_prompt)
         self.terminal_area.bind("<Button-1>", self.restrict_cursor_placement)
         
-        # --- Başlangıç ---
+    
         self.current_line_start_index = "1.0"
         self.print_initial_messages()
 
-    # --- Yardımcı Fonksiyonlar ---
+ 
 
     def get_current_input_text(self):
         return self.terminal_area.get(self.current_line_start_index, "end-1c").strip()
@@ -74,7 +74,7 @@ class TerminalUI(tk.Tk):
         self.print_text("Kullanılabilir özellikler: Komut Geçmişi (Oklar), Tab Tamamlama, I/O Yönlendirme (>, >>).")
         self.print_prompt()
 
-    # --- Kısıtlama ve Olay İşleyiciler ---
+   
     
     def restrict_cursor_placement(self, event):
         clicked_index = self.terminal_area.index(f"@{event.x},{event.y}")
@@ -92,7 +92,7 @@ class TerminalUI(tk.Tk):
                  return "break"
 
     def navigate_history(self, event):
-        """Up/Down tuşlarına basıldığında komut geçmişinde gezinir."""
+        """Pressing the Up/Down keys scrolls through the command history."""
         
         self.terminal_area.mark_set(tk.INSERT, self.current_line_start_index)
         
@@ -153,12 +153,12 @@ class TerminalUI(tk.Tk):
             self.print_prompt()
             return "break"
         
-        # Komutu Geçmişe Ekle
+   
         if command.strip() and (not self.command_history or self.command_history[-1] != command):
             self.command_history.append(command.strip())
         self.history_index = len(self.command_history) 
 
-        # Dahili Komutlar (Clear, Exit)
+    
         if command.lower() in ("clear", "cls"):
             self.terminal_area.delete(1.0, tk.END)
             self.print_prompt()
@@ -167,13 +167,13 @@ class TerminalUI(tk.Tk):
             self.quit()
             return "break"
 
-        # Harici Komutu Çalıştır
+
         threading.Thread(target=self.run_command_and_display, args=(command,)).start()
         
         return "break"
 
     def run_command_and_display(self, command):
-        """Executor'dan gelen çıktıyı işler ve ekranda gösterir."""
+        """Processes the output from the executor and displays it on the screen."""
         
         result = execute_command_logic(command)
         
@@ -188,6 +188,6 @@ class TerminalUI(tk.Tk):
 
         elif result["type"] == "tui_error":
             self.print_text(result["message"], color=self.error_color)
-            self.print_text("Lütfen bu tür komutları kendi işletim sistemi terminalinizde çalıştırın.", color=self.error_color)
+            self.print_text("This is an TUI app run this app at your default terminal app please.", color=self.error_color)
         
         self.print_prompt()
