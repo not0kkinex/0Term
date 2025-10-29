@@ -31,18 +31,6 @@ python app.py
 ---
 
 
-## 🧠 Project Structure
-
-0Term/
-│
-├── app.py
-├── executor.py
-├── terminal_ui.py
-├── helpers.py
-└── README.md
-
----
-
 ## 🧩 Contributing
 Contributions are welcome!
 If you have ideas, bugs, or feature requests, open an issue or pull request.
