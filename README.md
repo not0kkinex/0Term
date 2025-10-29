@@ -1,6 +1,6 @@
 # 🧠 0Term
 
-**0Term** is a minimalist Python-based terminal simulator that lets you execute commands and view their outputs in an interactive custom terminal interface.  
+**0Term** is a minimalist Python-based terminal simulator that lets you execute commands and view their outputs in an interactive, custom terminal interface.  
 It’s designed as a foundation for building your own terminal-style tools or command-driven applications.
 
 ---
@@ -20,14 +20,20 @@ It’s designed as a foundation for building your own terminal-style tools or co
 ```bash
 git clone https://github.com/not0kkinex/0Term.git
 cd 0Term
+
+# (Optional) Create a virtual environment
 python -m venv venv
-source venv/bin/activate (If you are using fish  source venv/bin/activate.fish)
+
+# Activate it
+source venv/bin/activate  # For Fish shell: source venv/bin/activate.fish
+
+# Install dependencies
 pip install -r requirements.txt
-```
+
 
 ## ▶️ Usage
 python app.py
-
+```
 ---
 
 
