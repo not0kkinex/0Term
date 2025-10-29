@@ -1,8 +1,8 @@
-# utils/helpers.py
+
 import os
 import getpass
 
-# --- Tema Tanımlamaları ---
+
 THEMES = {
     "Dark": {
         "bg": "#1E1E1E",       
@@ -24,7 +24,7 @@ THEMES = {
     }
 }
 
-# --- Prompt Oluşturucu ---
+
 def get_dynamic_prompt():
     """Kullanıcı adı ve mevcut dizini içeren prompt'u oluşturur."""
     try:
@@ -42,7 +42,7 @@ def get_dynamic_prompt():
     except Exception:
         return "$ "
 
-# --- Tab Tamamlama Yardımcısı ---
+
 def get_completions(partial_path):
     """
     Verilen kısmi yola (dosya/klasör) uyan tamamlama listesini döndürür.
@@ -54,7 +54,7 @@ def get_completions(partial_path):
     if not directory:
         directory = '.'
     
-    # Eğer dizin bir dosya değilse ve varsa
+
     if not os.path.isdir(directory) and directory != '.':
         return []
 
