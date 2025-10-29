@@ -1,8 +1,8 @@
-
+# helpers.py
 import os
 import getpass
 
-
+# --- Theme Definitions ---
 THEMES = {
     "Dark": {
         "bg": "#1E1E1E",       
@@ -21,12 +21,18 @@ THEMES = {
         "text": "#F8F8F2",     
         "error": "#FF6E6E",     
         "cursor": "#F8F8F2",
+    },
+    "0kki":{     
+        "bg": "#212133",
+        "text": "#72F1B8",
+        "error":"#FF6B6B",
+        "cursor":"#F9D71C",
     }
 }
 
-
+# --- Prompt Oluşturucu ---
 def get_dynamic_prompt():
-    """Kullanıcı adı ve mevcut dizini içeren prompt'u oluşturur."""
+    """Creates a prompt containing the username and current directory."""
     try:
         user = getpass.getuser()
         cwd_path = os.getcwd()
@@ -42,10 +48,9 @@ def get_dynamic_prompt():
     except Exception:
         return "$ "
 
-
 def get_completions(partial_path):
     """
-    Verilen kısmi yola (dosya/klasör) uyan tamamlama listesini döndürür.
+    The completion list that matches the given partial path (file/folder) ends.
     """
     if not partial_path:
         return os.listdir('.')
@@ -54,7 +59,6 @@ def get_completions(partial_path):
     if not directory:
         directory = '.'
     
-
     if not os.path.isdir(directory) and directory != '.':
         return []
 
