@@ -32,7 +32,7 @@ python app.py
 
 
 ## 🧠 Project Structure
-Kodu kopyala
+
 0Term/
 │
 ├── app.py
