@@ -1,6 +1,6 @@
 # 🧠 0Term
 
-**0Term** is a minimalist Python-based terminal simulator that lets you execute commands and view their outputs in an interactive, custom terminal interface.  
+**0Term** is a minimalist Python-based terminal emulator that lets you execute commands and view their outputs in an interactive, custom terminal interface.  
 It’s designed as a foundation for building your own terminal-style tools or command-driven applications.
 
 ---
