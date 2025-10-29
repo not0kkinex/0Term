@@ -17,7 +17,7 @@ It’s designed as a foundation for building your own terminal-style tools or co
 
 ## 📦 Installation
 
-
+''bash
 git clone https://github.com/not0kkinex/0Term.git
 cd 0Term
 python -m venv venv
