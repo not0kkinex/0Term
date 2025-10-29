@@ -17,13 +17,13 @@ It’s designed as a foundation for building your own terminal-style tools or co
 
 ## 📦 Installation
 
-''bash
+```bash
 git clone https://github.com/not0kkinex/0Term.git
 cd 0Term
 python -m venv venv
 source venv/bin/activate (If you are using fish  source venv/bin/activate.fish)
 pip install -r requirements.txt
-
+```
 
 ## ▶️ Usage
 python app.py
