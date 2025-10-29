@@ -43,6 +43,17 @@ If you have ideas, bugs, or feature requests, open an issue or pull request.
 
 ---
 
+## To-Do List
+* [] Add More Themes(About 10)
+* [] Add config file
+- [x] Add PTY support
+- [] Make it executable
+- [] Color Support
+- [] Run all TUI apps
+
+
+
+---
 ## 📄 License
 No License(lol)
 
